@@ -1,9 +1,39 @@
-/* CSS */
+/* Main CSS */
+
+:root {
+    --main-color: rgb(29, 161, 242);
+}
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, Tahoma;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f2faff;
 }
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+}
+
+
+/* Start To-Do List Page */
+
+.header {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #eee;
+}
+
+.header h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 50px;
+}
+
+
+/* End To-Do List Page */
