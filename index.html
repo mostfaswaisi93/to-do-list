@@ -12,13 +12,11 @@
 
 <body>
     <div class="start">
-
         <!-- Start Header -->
         <div class="header">
             <div class="container">
                 <h2>To-Do List</h2>
                 <button class="left toggle" title="Add"><span>+</span></button>
-                <br> <br>
                 <div class="form">
                     <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
                         <h3 id="title">Add Task</h3>
@@ -28,10 +26,10 @@
                             <input type="date" name="date" id="date">
                             <label for="status">Status:</label>
                             <select name="status" id="status">
-                            <option value="">--</option>
-                            <option value="In Progress">In Progress</option>
-                            <option value="Completed">Completed</option>
-                        </select>
+                                <option value="">--</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Completed">Completed</option>
+                            </select>
                         </div>
                         <div class="right">
                             <textarea name="description" placeholder="Description" id="description"></textarea>
@@ -44,13 +42,13 @@
         <!-- End Header -->
 
         <!-- Start Table  -->
-        <div class="container">
+        <div class="container table">
             <table class="full-width" id="tasks-list">
                 <thead>
                     <tr>
                         <th>#
                             <span class="tasks-count">
-                            Tasks Count: <span>0</span>
+                                Tasks Count: <span>0</span>
                             </span>
                         </th>
                         <th>Task</th>
@@ -64,6 +62,32 @@
             </table>
         </div>
         <!-- End Table  -->
+
+        <!-- Start Show Task -->
+        <div class="show-task">
+            <div class="container">
+                <div class="form-show">
+                    <button class="left back" title="Back">Back</button>
+                    <form>
+                        <h3>Show Task | <span id="show_task_id"></span></h3>
+                        <div class="left">
+                            <input type="text" placeholder="Task" name="task" id="show_task" disabled>
+                            <input type="date" name="date" id="show_date" disabled>
+                            <label for="status">Status:</label>
+                            <select name="status" id="show_status" disabled>
+                                <option value="">--</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
+                        <div class="right">
+                            <textarea name="description" placeholder="Description" id="show_description" disabled></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End Show Task -->
     </div>
 
     <!-- Start Footer -->

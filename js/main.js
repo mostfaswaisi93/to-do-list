@@ -3,7 +3,13 @@ let toggle = document.querySelector('.toggle');
 let div = document.querySelector('.form');
 let span = document.querySelector('span');
 let title = document.querySelector('#title');
+let header = document.querySelector(".header");
+let table = document.querySelector(".table");
+let showTask = document.querySelector(".show-task");
+let back = document.querySelector(".back");
+let tasksCount = document.querySelector(".tasks-count span");
 
+// Toggle Click
 toggle.addEventListener('click', () => {
     if (div.style.display === "none") {
         div.style.display = "block";
@@ -14,6 +20,13 @@ toggle.addEventListener('click', () => {
         div.style.display = "none";
         span.innerHTML = "+";
     }
+});
+
+// Back Click
+back.addEventListener('click', () => {
+    header.style.display = "block";
+    table.style.display = "block";
+    showTask.style.display = "none";
 });
 
 var selectedRow = null
@@ -60,6 +73,9 @@ function insertTasks(data) {
         `<a onClick="onEdit(this)" class="btn edit" title="Edit">Edit</a>
          <a onClick="onShow(this)" class="btn show" title="Show">Show</a>
          <a onClick="onDelete(this)" class="btn delete" title="Delete">Delete</a>`;
+    div.style.display = "none";
+    span.innerHTML = "+";
+    calculateTasks();
     console.log('Insert Data');
 }
 
@@ -75,6 +91,8 @@ function resetForm() {
 
 function onEdit(td) {
     title.innerHTML = "Edit Task";
+    div.style.display = "block";
+    span.innerHTML = "-";
     selectedRow = td.parentElement.parentElement;
     document.getElementById("task_id").value = selectedRow.cells[0].innerHTML;
     document.getElementById("task").value = selectedRow.cells[1].innerHTML;
@@ -89,13 +107,37 @@ function updateTasks(formData) {
     selectedRow.cells[2].innerHTML = formData.date;
     selectedRow.cells[3].innerHTML = formData.status;
     selectedRow.cells[4].innerHTML = formData.description;
+    div.style.display = "none";
+    span.innerHTML = "+";
+    calculateTasks();
+    console.log('Update Data');
+}
+
+function onShow(td) {
+    header.style.display = "none";
+    table.style.display = "none";
+    showTask.style.display = "block";
+    selectedRow = td.parentElement.parentElement;
+    document.getElementById("show_task_id").innerHTML = selectedRow.cells[0].innerHTML;
+    document.getElementById("show_task").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("show_date").value = selectedRow.cells[2].innerHTML;
+    document.getElementById("show_status").value = selectedRow.cells[3].innerHTML;
+    document.getElementById("show_description").value = selectedRow.cells[4].innerHTML;
 }
 
 function onDelete(td) {
     if (confirm('Are you sure you want to delete this task?')) {
         row = td.parentElement.parentElement;
+        console.log(row.length);
         document.getElementById("tasks-list").deleteRow(row.rowIndex);
         resetForm();
     }
+    calculateTasks();
     console.log('Delete Data');
+}
+
+function calculateTasks() {
+    // Calculate Tasks
+    tasksCount.innerHTML = document.querySelectorAll('tbody tr').length;
+    console.log(tasksCount.innerHTML);
 }
