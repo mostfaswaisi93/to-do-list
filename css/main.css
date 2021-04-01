@@ -10,7 +10,6 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f2faff;
 }
 
 .container {
@@ -20,20 +19,189 @@ body {
 }
 
 
-/* Start To-Do List Page */
+/* Start Header */
 
 .header {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-color: #eee;
+    /* min-height: 600px; */
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .header h2 {
     font-weight: bold;
     font-size: 30px;
     color: var(--main-color);
-    margin: 0 0 50px;
+    margin: 0 0 60px;
+    text-align: center;
+}
+
+.header button {
+    float: right;
+    padding: 10px;
+    width: 3%;
+    border-color: transparent;
+    background-color: var(--main-color);
+    color: #FFF;
+    cursor: pointer;
+}
+
+.header button:focus {
+    outline: unset;
+}
+
+.form {
+    display: none;
+}
+
+.header form {
+    overflow: hidden;
+    max-width: 800px;
+    margin: auto;
+}
+
+.header form .left {
+    float: left;
+    width: 49%;
+}
+
+.header form .right {
+    float: right;
+    width: 49%;
+}
+
+@media (max-width: 767px) {
+    .header form .left,
+    .header form .right {
+        float: none;
+        width: 100%;
+    }
+}
+
+.header form input:not([type="submit"]),
+.header form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    background-color: rgb(255 255 255 / 19%);
+}
+
+.header form select {
+    width: 86%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    background-color: rgb(255 255 255 / 19%);
+}
+
+.header form input:not([type="submit"]):focus,
+.header form textarea:focus {
+    outline: unset;
+    /* outline: 1px solid var(--main-color); */
+}
+
+.header form input {
+    height: 40px;
+}
+
+.header form textarea {
+    height: 150px;
+}
+
+.header form input[type="submit"] {
+    padding: 10px;
+    width: 100%;
+    border-color: transparent;
+    background-color: rgb(66, 186, 150);
+    color: #FFF;
+    cursor: pointer;
+}
+
+.header form textarea:focus::-webkit-input-placeholder,
+.header form input:not([type="submit"]):focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: .3s;
+}
+
+.header form textarea:focus:-ms-input-placeholder,
+.header form input:not([type="submit"]):focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: .3s;
+}
+
+.header form textarea:focus::placeholder,
+.header form input:not([type="submit"]):focus::placeholder {
+    opacity: 0;
+    transition: .3s;
 }
 
 
-/* End To-Do List Page */
+/* End Header */
+
+
+/* Start Table */
+
+.full-width {
+    width: 100%;
+}
+
+table,
+p,
+ul,
+ol {
+    margin-bottom: 2.5rem;
+}
+
+
+/* End Table */
+
+
+/* Start Footer */
+
+.footer {
+    background-color: #333;
+    color: #EEE;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/* End Footer */
+
+
+/* Start Grid System */
+
+@media (min-width: 576px) {
+    /* Small Devices => Landscape Phones */
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Medium Devices => Tablets */
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    /* Desktops */
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    /* Large Screens */
+    .container {
+        max-width: 1140px;
+    }
+}
+
+
+/* End Grid System */
