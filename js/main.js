@@ -1,4 +1,5 @@
-// Click On Toggle
+// Selectors
+var selectedRow = null
 let toggle = document.querySelector('.toggle');
 let div = document.querySelector('.form');
 let span = document.querySelector('span');
@@ -29,7 +30,6 @@ back.addEventListener('click', () => {
     showTask.style.display = "none";
 });
 
-var selectedRow = null
 
 // Form Submit
 function onFormSubmit() {
@@ -37,11 +37,10 @@ function onFormSubmit() {
     if (selectedRow == null)
         insertTasks(formData);
     else
-        updateTasks(formData);
+        updateTask(formData);
     title.innerHTML = "Add Task";
     resetForm();
 }
-
 
 // get Elements
 function readFormData() {
@@ -54,7 +53,7 @@ function readFormData() {
     return formData;
 }
 
-// Insert Tasks
+// Insert Task
 function insertTasks(data) {
     var table = document.getElementById("tasks-list").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
@@ -79,6 +78,7 @@ function insertTasks(data) {
     console.log('Insert Data');
 }
 
+// Reset Form
 function resetForm() {
     document.getElementById("task_id").value = "";
     document.getElementById("task").value = "";
@@ -89,6 +89,7 @@ function resetForm() {
     console.log('Reset Form');
 }
 
+// Edit Task
 function onEdit(td) {
     title.innerHTML = "Edit Task";
     div.style.display = "block";
@@ -101,7 +102,8 @@ function onEdit(td) {
     document.getElementById("description").value = selectedRow.cells[4].innerHTML;
 }
 
-function updateTasks(formData) {
+// Update Task
+function updateTask(formData) {
     selectedRow.cells[0].innerHTML = formData.task_id;
     selectedRow.cells[1].innerHTML = formData.task;
     selectedRow.cells[2].innerHTML = formData.date;
@@ -113,6 +115,7 @@ function updateTasks(formData) {
     console.log('Update Data');
 }
 
+// Show Task
 function onShow(td) {
     header.style.display = "none";
     table.style.display = "none";
@@ -125,6 +128,7 @@ function onShow(td) {
     document.getElementById("show_description").value = selectedRow.cells[4].innerHTML;
 }
 
+// Delete Task
 function onDelete(td) {
     if (confirm('Are you sure you want to delete this task?')) {
         row = td.parentElement.parentElement;
@@ -136,8 +140,8 @@ function onDelete(td) {
     console.log('Delete Data');
 }
 
+// Calculate Tasks
 function calculateTasks() {
-    // Calculate Tasks
     tasksCount.innerHTML = document.querySelectorAll('tbody tr').length;
     console.log(tasksCount.innerHTML);
 }

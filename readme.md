@@ -1,6 +1,7 @@
 # To-Do List
-  
-Content: 
+
+Content:
+
 - HTML + CSS
 - JavaScript
 

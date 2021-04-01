@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 .start {
@@ -44,7 +44,7 @@ body {
     width: 3%;
     border-color: transparent;
     background-color: var(--main-color);
-    color: #FFF;
+    color: #fff;
     border-radius: 5px;
     cursor: pointer;
     -webkit-border-radius: 5px;
@@ -91,7 +91,7 @@ body {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     background-color: rgb(255 255 255 / 19%);
 }
 
@@ -99,7 +99,7 @@ body {
     width: 86%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     background-color: rgb(255 255 255 / 19%);
 }
 
@@ -121,7 +121,7 @@ body {
     width: 100%;
     border-color: transparent;
     background-color: rgb(66, 186, 150);
-    color: #FFF;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -132,19 +132,19 @@ body {
 .header form textarea:focus::-webkit-input-placeholder,
 .header form input:not([type="submit"]):focus::-webkit-input-placeholder {
     opacity: 0;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .header form textarea:focus:-ms-input-placeholder,
 .header form input:not([type="submit"]):focus:-ms-input-placeholder {
     opacity: 0;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .header form textarea:focus::placeholder,
 .header form input:not([type="submit"]):focus::placeholder {
     opacity: 0;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 
@@ -173,7 +173,7 @@ th,
 td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #E1E1E1;
+    border-bottom: 1px solid #e1e1e1;
 }
 
 tbody a {
@@ -231,7 +231,7 @@ tbody a {
     width: 7%;
     border-color: transparent;
     background-color: #000;
-    color: #FFF;
+    color: #fff;
     border-radius: 5px;
     cursor: pointer;
     -webkit-border-radius: 5px;
@@ -274,7 +274,7 @@ tbody a {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     background-color: rgb(255 255 255 / 19%);
 }
 
@@ -282,7 +282,7 @@ tbody a {
     width: 86%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     background-color: rgb(255 255 255 / 19%);
 }
 
@@ -302,19 +302,19 @@ tbody a {
 .show-task form textarea:focus::-webkit-input-placeholder,
 .show-task form input:not([type="submit"]):focus::-webkit-input-placeholder {
     opacity: 0;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .show-task form textarea:focus:-ms-input-placeholder,
 .show-task form input:not([type="submit"]):focus:-ms-input-placeholder {
     opacity: 0;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .show-task form textarea:focus::placeholder,
 .show-task form input:not([type="submit"]):focus::placeholder {
     opacity: 0;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 
@@ -325,7 +325,7 @@ tbody a {
 
 .footer {
     background-color: #333;
-    color: #EEE;
+    color: #eee;
     padding: 20px;
     text-align: center;
     /* position: fixed;
