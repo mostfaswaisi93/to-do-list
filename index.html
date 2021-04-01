@@ -11,56 +11,59 @@
 </head>
 
 <body>
+    <div class="start">
 
-    <!-- Start Header -->
-    <div class="header">
-        <div class="container">
-            <h2>To-Do List</h2>
-            <button class="left toggle" title="Add"><span>+</span></button>
-            <br> <br>
-            <div class="form">
-                <form action="">
-                    <div class="left">
-                        <input type="text" placeholder="Task Id" name="task_id">
-                        <input type="text" placeholder="Task" name="task">
-                        <input type="date" name="date">
-                        <label for="status">Status:</label>
-                        <select name="status" id="status">
-                        <option value="in progress">In Progress</option>
-                        <option value="completed">Completed</option>
-                    </select>
-                        <!-- <input type="text" placeholder="Subject" name="subject"> -->
-                    </div>
-                    <div class="right">
-                        <textarea name="description" placeholder="Description"></textarea>
-                        <input type="submit" value="Save">
-                    </div>
-                </form>
+        <!-- Start Header -->
+        <div class="header">
+            <div class="container">
+                <h2>To-Do List</h2>
+                <button class="left toggle" title="Add"><span>+</span></button>
+                <br> <br>
+                <div class="form">
+                    <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+                        <div class="left">
+                            <input type="text" placeholder="Task Id" name="task_id" id="task_id">
+                            <input type="text" placeholder="Task" name="task" id="task">
+                            <input type="date" name="date" id="date">
+                            <label for="status">Status:</label>
+                            <select name="status" id="status">
+                            <option value="">--</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                        </div>
+                        <div class="right">
+                            <textarea name="description" placeholder="Description" id="description"></textarea>
+                            <input type="submit" value="Save">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- End Header -->
+        <!-- End Header -->
 
-    <!-- Start Table  -->
-    <div class="container">
-        <table class="full-width">
-            <thead>
-                <tr>
-                    <th>#
-                        <span class="tasks-count">
-                            Tasks <span>0</span>
-                        </span>
-                    </th>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id=""></tbody>
-        </table>
+        <!-- Start Table  -->
+        <div class="container">
+            <table class="full-width" id="tasks-list">
+                <thead>
+                    <tr>
+                        <th>#
+                            <span class="tasks-count">
+                            Tasks Count: <span>0</span>
+                            </span>
+                        </th>
+                        <th>Task</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <!-- End Table  -->
     </div>
-    <!-- End Table  -->
 
     <!-- Start Footer -->
     <div class="footer">Created By mostfaswaisi93</div>

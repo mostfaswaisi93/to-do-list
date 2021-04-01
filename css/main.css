@@ -12,6 +12,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.start {
+    min-height: 100vh;
+}
+
 .container {
     padding-left: 15px;
     padding-right: 15px;
@@ -22,7 +26,6 @@ body {
 /* Start Header */
 
 .header {
-    /* min-height: 600px; */
     padding-top: 60px;
     padding-bottom: 60px;
 }
@@ -42,7 +45,12 @@ body {
     border-color: transparent;
     background-color: var(--main-color);
     color: #FFF;
+    border-radius: 5px;
     cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 .header button:focus {
@@ -98,7 +106,6 @@ body {
 .header form input:not([type="submit"]):focus,
 .header form textarea:focus {
     outline: unset;
-    /* outline: 1px solid var(--main-color); */
 }
 
 .header form input {
@@ -116,6 +123,10 @@ body {
     background-color: rgb(66, 186, 150);
     color: #FFF;
     cursor: pointer;
+}
+
+.header form input[type="submit"]:focus {
+    outline: unset;
 }
 
 .header form textarea:focus::-webkit-input-placeholder,
@@ -153,6 +164,47 @@ ol {
     margin-bottom: 2.5rem;
 }
 
+th:first-child,
+td:first-child {
+    padding-left: 0;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #E1E1E1;
+}
+
+tbody a {
+    cursor: pointer;
+}
+
+.btn {
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+.btn.edit {
+    background-color: var(--main-color);
+}
+
+.btn.show {
+    background-color: turquoise;
+}
+
+.btn.delete {
+    background-color: tomato;
+}
+
 
 /* End Table */
 
@@ -164,9 +216,9 @@ ol {
     color: #EEE;
     padding: 20px;
     text-align: center;
-    position: fixed;
+    /* position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100%; */
 }
 
 
@@ -176,14 +228,14 @@ ol {
 /* Start Grid System */
 
 @media (min-width: 576px) {
-    /* Small Devices => Landscape Phones */
+    /* Landscape Phones */
     .container {
         max-width: 540px;
     }
 }
 
 @media (min-width: 768px) {
-    /* Medium Devices => Tablets */
+    /* Tablets */
     .container {
         max-width: 720px;
     }
