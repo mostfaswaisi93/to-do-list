@@ -2,11 +2,14 @@
 let toggle = document.querySelector('.toggle');
 let div = document.querySelector('.form');
 let span = document.querySelector('span');
+let title = document.querySelector('#title');
 
 toggle.addEventListener('click', () => {
     if (div.style.display === "none") {
         div.style.display = "block";
         span.innerHTML = "-";
+        title.innerHTML = "Add Task";
+        resetForm();
     } else {
         div.style.display = "none";
         span.innerHTML = "+";
@@ -17,14 +20,13 @@ var selectedRow = null
 
 // Form Submit
 function onFormSubmit() {
-    // if (validate()) {
     var formData = readFormData();
     if (selectedRow == null)
         insertTasks(formData);
     else
         updateTasks(formData);
+    title.innerHTML = "Add Task";
     resetForm();
-    // }
 }
 
 
@@ -72,6 +74,7 @@ function resetForm() {
 }
 
 function onEdit(td) {
+    title.innerHTML = "Edit Task";
     selectedRow = td.parentElement.parentElement;
     document.getElementById("task_id").value = selectedRow.cells[0].innerHTML;
     document.getElementById("task").value = selectedRow.cells[1].innerHTML;
