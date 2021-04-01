@@ -10,8 +10,4 @@ Content:
 $ git clone https://github.com/mostfaswaisi93/to-do-list
 ```
 
-## Demo
-
-```
-$ [Link](https://mostfaswaisi93.github.io/to-do-list/)  
-```
+[Demo](https://mostfaswaisi93.github.io/to-do-list/)
