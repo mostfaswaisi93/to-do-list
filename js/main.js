@@ -1,14 +1,14 @@
 // Selectors
-var selectedRow = null
-let toggle = document.querySelector('.toggle');
-let div = document.querySelector('.form');
-let span = document.querySelector('span');
-let title = document.querySelector('#title');
-let header = document.querySelector(".header");
-let table = document.querySelector(".table");
-let showTask = document.querySelector(".show-task");
-let back = document.querySelector(".back");
-let tasksCount = document.querySelector(".tasks-count span");
+let selectedRow = null,
+    toggle = document.querySelector('.toggle'),
+    div = document.querySelector('.form'),
+    span = document.querySelector('span'),
+    title = document.querySelector('#title'),
+    header = document.querySelector(".header"),
+    table = document.querySelector(".table"),
+    showTask = document.querySelector(".show-task"),
+    back = document.querySelector(".back"),
+    tasksCount = document.querySelector(".tasks-count span");
 
 // Toggle Click
 toggle.addEventListener('click', () => {
@@ -33,7 +33,7 @@ back.addEventListener('click', () => {
 
 // Form Submit
 function onFormSubmit() {
-    var formData = readFormData();
+    let formData = readFormData();
     if (selectedRow == null)
         insertTasks(formData);
     else
@@ -44,7 +44,7 @@ function onFormSubmit() {
 
 // get Elements
 function readFormData() {
-    var formData = {};
+    let formData = {};
     formData["task_id"] = document.getElementById("task_id").value;
     formData["task"] = document.getElementById("task").value;
     formData["date"] = document.getElementById("date").value;
@@ -53,10 +53,10 @@ function readFormData() {
     return formData;
 }
 
-// Insert Task
+// Insert Tasks
 function insertTasks(data) {
-    var table = document.getElementById("tasks-list").getElementsByTagName('tbody')[0];
-    var newRow = table.insertRow(table.length);
+    let table = document.getElementById("tasks-list").getElementsByTagName('tbody')[0];
+    let newRow = table.insertRow(table.length);
     cell1 = newRow.insertCell(0);
     cell1.innerHTML = data.task_id;
     cell2 = newRow.insertCell(1);
