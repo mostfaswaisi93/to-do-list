@@ -12,7 +12,7 @@ let selectedRow = null,
 
 // Toggle Click
 toggle.addEventListener('click', () => {
-    if (div.style.display === "none") {
+    if (div.style.display === "none") { // === values and type
         div.style.display = "block";
         span.innerHTML = "-";
         title.innerHTML = "Add Task";
@@ -34,17 +34,19 @@ back.addEventListener('click', () => {
 // Form Submit
 function onFormSubmit() {
     let formData = readFormData();
-    if (selectedRow == null)
+    if (selectedRow == null) {
         insertTasks(formData);
-    else
+
+    } else {
         updateTask(formData);
+    }
     title.innerHTML = "Add Task";
     resetForm();
 }
 
 // get Elements
 function readFormData() {
-    let formData = {};
+    let formData = {}; // new Object
     formData["task_id"] = document.getElementById("task_id").value;
     formData["task"] = document.getElementById("task").value;
     formData["date"] = document.getElementById("date").value;
