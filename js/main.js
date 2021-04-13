@@ -1,3 +1,4 @@
+const status = { new: 1, in_progress: 2, completed: 3 };
 // Selectors
 let selectedRow = null,
     toggle = document.querySelector('.toggle'),
@@ -10,9 +11,11 @@ let selectedRow = null,
     back = document.querySelector(".back"),
     tasksCount = document.querySelector(".tasks-count span");
 
+drawTable();
+
 // Toggle Click
 toggle.addEventListener('click', () => {
-    if (div.style.display === "none") { // === values and type
+    if (div.style.display !== "block") { // === values and type
         div.style.display = "block";
         span.innerHTML = "-";
         title.innerHTML = "Add Task";
@@ -57,6 +60,12 @@ function readFormData() {
 
 // Insert Tasks
 function insertTasks(data) {
+    addRow(data);
+    saveDataToLocalStorage(data);
+    calculateTasks();
+}
+
+function addRow(data) {
     let table = document.getElementById("tasks-list").getElementsByTagName('tbody')[0];
     let newRow = table.insertRow(table.length);
     cell1 = newRow.insertCell(0);
@@ -66,7 +75,7 @@ function insertTasks(data) {
     cell3 = newRow.insertCell(2);
     cell3.innerHTML = data.date;
     cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.status;
+    cell4.innerHTML = +data.status === 1 ? 'New' : (+data.status === 2 ? 'In Progress' : 'Completed');
     cell5 = newRow.insertCell(4);
     cell5.innerHTML = data.description;
     cell5 = newRow.insertCell(5);
@@ -76,19 +85,12 @@ function insertTasks(data) {
          <a onClick="onDelete(this)" class="btn delete" title="Delete">Delete</a>`;
     div.style.display = "none";
     span.innerHTML = "+";
-    calculateTasks();
-    console.log('Insert Data');
 }
 
 // Reset Form
 function resetForm() {
-    document.getElementById("task_id").value = "";
-    document.getElementById("task").value = "";
-    document.getElementById("date").value = "";
-    document.getElementById("status").value = "";
-    document.getElementById("description").value = "";
+    document.getElementById('form').reset();
     selectedRow = null;
-    console.log('Reset Form');
 }
 
 // Edit Task
@@ -96,12 +98,17 @@ function onEdit(td) {
     title.innerHTML = "Edit Task";
     div.style.display = "block";
     span.innerHTML = "-";
-    selectedRow = td.parentElement.parentElement;
-    document.getElementById("task_id").value = selectedRow.cells[0].innerHTML;
-    document.getElementById("task").value = selectedRow.cells[1].innerHTML;
-    document.getElementById("date").value = selectedRow.cells[2].innerHTML;
-    document.getElementById("status").value = selectedRow.cells[3].innerHTML;
-    document.getElementById("description").value = selectedRow.cells[4].innerHTML;
+    let selectedRow = td.parentElement.parentElement;
+    let taskId = selectedRow.cells[0].innerHTML;
+    let tasks = getTasks();
+
+    let task = tasks.find(taskObj => taskObj && parseInt(taskObj.task_id) === parseInt(taskId));
+
+    document.getElementById("task_id").value = task.task_id;
+    document.getElementById("task").value = task.task;
+    document.getElementById("date").value = task.date;
+    document.getElementById("status").value = task.status;
+    document.getElementById("description").value = task.description;
 }
 
 // Update Task
@@ -142,8 +149,25 @@ function onDelete(td) {
     console.log('Delete Data');
 }
 
+function drawTable() {
+    let tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
+    tasks.forEach(task => {
+        addRow(task);
+    });
+}
+
 // Calculate Tasks
 function calculateTasks() {
     tasksCount.innerHTML = document.querySelectorAll('tbody tr').length;
     console.log(tasksCount.innerHTML);
+}
+
+function getTasks() {
+    return localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
+}
+
+function saveDataToLocalStorage(data) {
+    let tasks = getTasks();
+    tasks.push(data);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }

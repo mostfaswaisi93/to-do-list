@@ -18,17 +18,17 @@
                 <h2>To-Do List</h2>
                 <button class="left toggle" title="Add"><span>+</span></button>
                 <div class="form">
-                    <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+                    <form id="form" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
                         <h3 id="title">Add Task</h3>
                         <div class="left">
                             <input type="number" placeholder="Task Id" name="task_id" id="task_id">
-                            <input type="text" placeholder="Task" name="task" id="task">
+                            <input type="text" placeholder="Task Name" name="task_name" id="task_name">
                             <input type="date" name="date" id="date">
                             <label for="status">Status:</label>
                             <select name="status" id="status">
-                                <option value="">--</option>
-                                <option value="In Progress">In Progress</option>
-                                <option value="Completed">Completed</option>
+                                <option selected="true" value="1">New</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Completed</option>
                             </select>
                         </div>
                         <div class="right">
@@ -71,13 +71,13 @@
                     <form>
                         <h3>Show Task | <span id="show_task_id"></span></h3>
                         <div class="left">
-                            <input type="text" placeholder="Task" name="task" id="show_task" disabled>
+                            <input type="text" placeholder="Task Name" name="task_name" id="show_task_name" disabled>
                             <input type="date" name="date" id="show_date" disabled>
                             <label for="status">Status:</label>
                             <select name="status" id="show_status" disabled>
-                                <option value="">--</option>
-                                <option value="In Progress">In Progress</option>
-                                <option value="Completed">Completed</option>
+                                <option selected="true" value="1">New</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Completed</option>
                             </select>
                         </div>
                         <div class="right">
